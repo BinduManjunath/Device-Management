@@ -7,14 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
-export interface Device {
-  id: number;
-  name: string;
-  status: string;
-  telemetrySource: string;
-  lastCommunicationTime: string;
-}
+import { Device } from '../../Shared/models/device';
 
 @Component({
   selector: 'app-device-list',

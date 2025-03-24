@@ -1,10 +1,17 @@
 <!-- app.component.html -->
+
 <mat-drawer-container class="drawer-container">
   <mat-drawer #drawer position="end" mode="over">
-    <app-device-details [device]="selectedDevice" (drawerClosed)="onDrawerClosed()" (updateAPNofDevice)="updateAPN($event)"></app-device-details>
+    <app-device-details [device]="selectedDevice" (drawerClosed)="onDrawerClosed()"
+      (updateAPNofDevice)="updateAPN($event)"></app-device-details>
   </mat-drawer>
-  
+
   <mat-drawer-content>
     <app-device-list (deviceClick)="openDeviceDrawer($event)"></app-device-list>
   </mat-drawer-content>
 </mat-drawer-container>
+
+
+<div *ngIf="isLoading" class="loader-overlay">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>

@@ -1,13 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar'; // Import the toolbar module
-
-export interface Device {
-  id: number;
-  model: string;
-  dataSource: string;
-  status: string;  // e.g., "Active" or "Inactive"
-}
+import { Device } from '../../Shared/models/device';
 
 @Component({
   selector: 'app-device-details',
