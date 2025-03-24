@@ -11,14 +11,16 @@ This repository contains a device management application that demonstrates:
 - **Loader & Notifications:**  
   Shows a loader during API calls and displays success or error notifications (using Angular Material Snackbar) when actions such as updating an APN are performed.
 
-This application uses Angular (frontend) and Node.js with Express (backend) together.
+The application consists of two parts:
+  
+1. **Frontend:** An Angular application (located in the `src/` folder)  
+2. **Backend:** A Node.js + Express API server
 
 ---
 
 ## Project Structure
 
-/ ├── frontend/ # Angular application │ ├── e2e/ │ ├── node_modules/ │ ├── src/ │ │ ├── app/ │ │ │ ├── device-list/ # Device list component │ │ │ ├── device-details/ # Drawer displaying device metadata │ │ │ ├── services/ # Service(s) for API communication │ │ │ └── app.module.ts # Main Angular module │ │ ├── assets/ │ │ └── index.html │ ├── angular.json │ ├── package.json │ └── tsconfig.json
-
+rc/ └── app/ ├── Pages/ │ ├── device-details/ │ │ ├── device-details.component.ts │ │ ├── device-details.component.html │ │ ├── device-details.component.css │ │ └── device-details.component.spec.ts │ └── device-list/ │ ├── device-list.component.ts │ ├── device-list.component.html │ ├── device-list.component.css │ └── device-list.component.spec.ts ├── Services/ │ ├── device.service.ts │ └── device.service.spec.ts ├── Shared/ │ └── models/ # Contains shared interfaces/models ├── app.component.ts ├── app.component.html ├── app.component.css ├── app.component.spec.ts ├── app.config.ts └── app.routes.ts index.html
 
 / ├──backend/ # Node.js + Express backend ├── node_modules/ ├── server.js # Express server with mock APIs └── package.json
 
