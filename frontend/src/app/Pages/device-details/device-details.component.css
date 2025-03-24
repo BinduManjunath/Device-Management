@@ -1,0 +1,11 @@
+.drawer-container {
+    height: 100%;
+  }
+  
+  .drawer-content {
+    margin-top: 16px;
+  }
+  
+  .drawer-actions {
+    margin-top: 16px;
+  }

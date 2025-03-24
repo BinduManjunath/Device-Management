@@ -1,0 +1,12 @@
+/* device-details-drawer.component.scss */
+.drawer-container {
+    height: 100vh;  
+  }
+  
+  .drawer-content {
+    margin-top: 16px;
+  }
+  
+  .drawer-actions {
+    margin-top: 16px;
+  }

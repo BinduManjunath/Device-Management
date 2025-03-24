@@ -1,1 +1,24 @@
-<p>device-details works!</p>
+<!-- device-details.component.html -->
+
+
+    <div class="main-content">
+      <!-- Your main content goes here -->
+      <mat-toolbar color="primary">
+        Device Details
+      </mat-toolbar>
+      <div class="drawer-content" style="padding: 16px;">
+        <p><strong>Device ID:</strong> {{ device?.id }}</p>
+        <p><strong>Model:</strong> {{ device?.model }}</p>
+        <p><strong>Data Source:</strong> {{ device?.dataSource }}</p>
+      </div>
+      <div class="drawer-actions" style="padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+        <button mat-raised-button 
+                color="accent"
+                (click)="updateAPN()"
+                [disabled]="device?.status === 'Inactive'">
+          Update APN
+        </button>
+        <button mat-button (click)="closeDrawer()">Close</button>
+      </div>
+
+    </div>

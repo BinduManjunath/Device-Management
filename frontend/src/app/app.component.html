@@ -1,5 +1,10 @@
-<h1>{{ title }}</h1>
-
-<!-- Device List View -->
-
-<app-device-list (deviceClick)="openDrawer($event)"></app-device-list>
+<!-- app.component.html -->
+<mat-drawer-container class="drawer-container">
+  <mat-drawer #drawer position="end" mode="over">
+    <app-device-details [device]="selectedDevice" (drawerClosed)="onDrawerClosed()"></app-device-details>
+  </mat-drawer>
+  
+  <mat-drawer-content>
+    <app-device-list (deviceClick)="openDeviceDrawer($event)"></app-device-list>
+  </mat-drawer-content>
+</mat-drawer-container>

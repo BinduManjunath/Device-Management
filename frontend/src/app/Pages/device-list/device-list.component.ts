@@ -32,6 +32,7 @@ export class DeviceListComponent {
   displayedColumns: string[] = ['name', 'status', 'telemetrySource', 'lastCommunicationTime'];
   dataSource?: any;
   selectedStatus: string = '';
+  selectedDevice: any;
 
   constructor(private deviceService: DeviceService) { }
 
@@ -51,6 +52,8 @@ export class DeviceListComponent {
   }
 
   onDeviceClick(device: any): void {
+    this.selectedDevice = device; // Set the clicked device as selected
     this.deviceClick.emit(device); // Emit the clicked device to the parent
   }
+
 }
