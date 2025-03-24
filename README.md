@@ -17,7 +17,10 @@ This application uses Angular (frontend) and Node.js with Express (backend) toge
 
 ## Project Structure
 
-/ ├── frontend/ # Angular application │ ├── e2e/ │ ├── node_modules/ │ ├── src/ │ │ ├── app/ │ │ │ ├── device-list/ # Device list component │ │ │ ├── device-details-drawer/ # Drawer displaying device metadata │ │ │ ├── services/ # Service(s) for API communication │ │ │ └── app.module.ts # Main Angular module │ │ ├── assets/ │ │ └── index.html │ ├── angular.json │ ├── package.json │ └── tsconfig.json │ └── backend/ # Node.js + Express backend ├── node_modules/ ├── server.js # Express server with mock APIs └── package.json
+/ ├── frontend/ # Angular application │ ├── e2e/ │ ├── node_modules/ │ ├── src/ │ │ ├── app/ │ │ │ ├── device-list/ # Device list component │ │ │ ├── device-details/ # Drawer displaying device metadata │ │ │ ├── services/ # Service(s) for API communication │ │ │ └── app.module.ts # Main Angular module │ │ ├── assets/ │ │ └── index.html │ ├── angular.json │ ├── package.json │ └── tsconfig.json
+
+
+/ ├──backend/ # Node.js + Express backend ├── node_modules/ ├── server.js # Express server with mock APIs └── package.json
 
 
 ---
