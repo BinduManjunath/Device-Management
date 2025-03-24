@@ -1,0 +1,18 @@
+<table>
+    <thead>
+      <tr>
+        <th>Device Name</th>
+        <th>Status</th>
+        <th>Telemetry Source</th>
+        <th>Last Communication Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let device of devices" (click)="onDeviceClick(device)">
+        <td>{{ device.name }}</td>
+        <td>{{ device.status }}</td>
+        <td>{{ device.telemetrySource }}</td>
+        <td>{{ device.lastCommunicationTime }}</td>
+      </tr>
+    </tbody>
+  </table>
