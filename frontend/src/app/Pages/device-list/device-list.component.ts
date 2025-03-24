@@ -9,7 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
 export interface Device {
-  id: string;
+  id: number;
   name: string;
   status: string;
   telemetrySource: string;
@@ -26,6 +26,7 @@ export interface Device {
     MatFormFieldModule,
     MatSelectModule],
 })
+
 export class DeviceListComponent {
   @Output() deviceClick = new EventEmitter<any>(); // Event to communicate with the parent
   devices: Device[] = [];
@@ -34,7 +35,7 @@ export class DeviceListComponent {
   selectedStatus: string = '';
   selectedDevice: any;
 
-  constructor(private deviceService: DeviceService) { }
+  constructor(private deviceService: DeviceService, ) { }
 
   ngOnInit(): void {
     this.deviceService.getDevices().subscribe((data) => {

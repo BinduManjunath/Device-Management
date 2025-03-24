@@ -3,7 +3,7 @@ import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar'; // Import the toolbar module
 
 export interface Device {
-  id: string;
+  id: number;
   model: string;
   dataSource: string;
   status: string;  // e.g., "Active" or "Inactive"
@@ -12,7 +12,7 @@ export interface Device {
 @Component({
   selector: 'app-device-details',
   standalone: true,
-  imports: [MatToolbarModule, MatSidenavModule, MatDrawer ],
+  imports: [MatToolbarModule, MatSidenavModule, MatDrawer],
   templateUrl: './device-details.component.html',
   styleUrl: './device-details.component.css'
 })
@@ -22,6 +22,9 @@ export class DeviceDetailsComponent implements OnInit {
 
   // Optionally, emit an event when the drawer closes.
   @Output() drawerClosed = new EventEmitter<void>();
+  // Emit an event to update the APN for a device.
+  @Output() updateAPNofDevice = new EventEmitter<number>();
+
 
   // Get a reference to the drawer so we can close it programmatically.
   @ViewChild('drawer', { static: true }) drawer?: MatDrawer;
@@ -36,16 +39,13 @@ export class DeviceDetailsComponent implements OnInit {
 
   // Called when the "Update APN" button is clicked.
   updateAPN(): void {
-    // Insert your APN update logic here.
-    console.log('Update APN clicked for device:', this.device?.id);
+    if (this.device)
+      this.updateAPNofDevice.emit(this.device.id)
   }
 
   // Close the drawer and optionally notify the parent component.
   closeDrawer(): void {
-    if (this.drawer) {
-      this.drawer.close();
-      this.drawerClosed.emit();
-    }
+    this.drawerClosed.emit();
   }
 
 }
