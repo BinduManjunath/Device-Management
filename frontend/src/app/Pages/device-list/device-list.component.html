@@ -1,18 +1,50 @@
-<table>
-    <thead>
-      <tr>
-        <th>Device Name</th>
-        <th>Status</th>
-        <th>Telemetry Source</th>
-        <th>Last Communication Time</th>
+<!-- device-list.component.html -->
+<mat-card>
+    <mat-card-title>Device List</mat-card-title>
+  
+    <!-- Filter Section -->
+    <mat-form-field appearance="fill" style="width: 200px; margin-bottom: 16px;">
+      <mat-label>Status Filter</mat-label>
+      <mat-select [(value)]="selectedStatus" (selectionChange)="applyFilter($event.value)">
+        <mat-option value="">All</mat-option>
+        <mat-option value="Active">Active</mat-option>
+        <mat-option value="Inactive">Inactive</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <!-- Material Table -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+  
+      <!-- Device Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Device Name </th>
+        <td mat-cell *matCellDef="let device"> {{ device.name }} </td>
+      </ng-container>
+  
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let device"> {{ device.status }} </td>
+      </ng-container>
+  
+      <!-- Telemetry Source Column -->
+      <ng-container matColumnDef="telemetrySource">
+        <th mat-header-cell *matHeaderCellDef> Telemetry Source </th>
+        <td mat-cell *matCellDef="let device"> {{ device.telemetrySource }} </td>
+      </ng-container>
+  
+      <!-- Last Communication Time Column -->
+      <ng-container matColumnDef="lastCommunicationTime">
+        <th mat-header-cell *matHeaderCellDef> Last Communication Time </th>
+        <td mat-cell *matCellDef="let device"> {{ device.lastCommunicationTime }} </td>
+      </ng-container>
+  
+      <!-- Header and data rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row 
+          *matRowDef="let row; columns: displayedColumns" 
+          (click)="onDeviceClick(row)" 
+          style="cursor: pointer;">
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let device of devices" (click)="onDeviceClick(device)">
-        <td>{{ device.name }}</td>
-        <td>{{ device.status }}</td>
-        <td>{{ device.telemetrySource }}</td>
-        <td>{{ device.lastCommunicationTime }}</td>
-      </tr>
-    </tbody>
-  </table>
+    </table>
+  </mat-card>
